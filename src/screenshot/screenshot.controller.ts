@@ -1,9 +1,9 @@
-import { Controller, Get, Query, Res } from '@nestjs/common';
-import { ScreenshotService } from './screenshot.service';
-import { Response } from 'express';
-import { ScreenshotDto } from './screenshot-dto';
+import { Controller, Get, Query, Res } from "@nestjs/common";
+import { ScreenshotService } from "./screenshot.service";
+import { Response } from "express";
+import { ScreenshotDto } from "./screenshot-dto";
 
-@Controller('/screenshot')
+@Controller("/screenshot")
 export class ScreenshotController {
   constructor(private readonly screenshotService: ScreenshotService) {}
 
@@ -11,6 +11,6 @@ export class ScreenshotController {
   async getScreenshot(@Query() query: ScreenshotDto, @Res() res: Response) {
     const { url } = query;
     const result = await this.screenshotService.screenshot(url);
-    res.type('png').send(result);
+    res.type("png").send(result);
   }
 }

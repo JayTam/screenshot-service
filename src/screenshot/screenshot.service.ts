@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import * as puppeteer from 'puppeteer';
+import { Injectable } from "@nestjs/common";
+import * as puppeteer from "puppeteer";
 
 @Injectable()
 export class ScreenshotService {
@@ -16,7 +16,7 @@ export class ScreenshotService {
 
     try {
       const page = await browser.newPage();
-      await page.goto(url, { waitUntil: 'networkidle0' });
+      await page.goto(url, { waitUntil: "networkidle0" });
       return await page.screenshot();
     } finally {
       browser.close();
