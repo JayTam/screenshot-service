@@ -9,8 +9,7 @@ export class ScreenshotController {
 
   @Get()
   async getScreenshot(@Query() query: ScreenshotDto, @Res() res: Response) {
-    const { url } = query;
-    const result = await this.screenshotService.screenshot(url);
+    const result = await this.screenshotService.screenshot(query.url, query);
     res.type("png").send(result);
   }
 }
